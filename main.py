@@ -26,7 +26,7 @@ def search_info():
                 print(f"\nHemsida: {search.lower()}")
                 print(f"Gmail: {every}")
                 print(f"Lösenord: {dict_with_info[every]}")
-                input("\nTryck ENTER knapp för att gå till startsida\n")
+                input("\nTryck ENTER för att gå till startsida\n")
                 break
             
             break
@@ -50,9 +50,10 @@ def add_info():
         None
     """
     os.system('cls')
-
     while True:
+        print("Lägg till hemsida")
         website = input("Hemsida: ")
+        
         if website == "": 
             print("Ogiltig websida!")
             time.sleep(2)
@@ -71,7 +72,24 @@ def add_info():
         
     while True:
         new_gmail = input("Gmail: ")
+        
+        if new_gmail == "":
+            print("Ogiltig epost")
+            time.sleep(2)
+            os.system('cls')
+            print(f"Hemsida: {website}")
+            continue
+        
         new_password = input("Lösenord: ")
+        
+        if new_password == "":
+            print("Ogiltigt lösenord")
+            time.sleep(2)
+            os.system('cls')
+            print(f"Hemsida: {website}")
+
+            continue
+        
         confirm_password = input("Bekräfta lösenord: ")
         
         if new_password == confirm_password:
@@ -83,6 +101,8 @@ def add_info():
         else:
             print("Lösenorden matchar inte!\n")
             time.sleep(2)
+            os.system('cls')
+            print(f"Hemsida: {website}")
             continue
 
 
@@ -107,7 +127,7 @@ def show_all():
             counter+=1
             break
     
-    input("\nTryck ENTER knapp för att gå till startsida\n")
+    input("\nTryck ENTER för att gå till startsida\n")
 
 
 def remove_website():
@@ -160,7 +180,7 @@ def remove_website():
                 break
         
         else:
-            print("Hemsidan hittas inte")
+            print("Hemsidan hittades inte")
             time.sleep(2)
             break
 
@@ -190,8 +210,10 @@ def main():
             remove_website()
         
         elif choice == "5":
+            os.system('cls')
+            print("Avslutad")
             break
-        
+
         else:
             continue
 
